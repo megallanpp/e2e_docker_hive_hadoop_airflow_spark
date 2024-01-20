@@ -1,0 +1,38 @@
+-- Remova a tabela se existir
+DROP TABLE IF EXISTS cota_parlamentar;
+
+-- Crie a tabela se não existir
+CREATE EXTERNAL TABLE IF NOT EXISTS cota_parlamentar (
+    codlegislatura STRING,
+    datemissao STRING,
+    idedocumento STRING,
+    idecadastro STRING,
+    indtipodocumento STRING,
+    nucarteiraparlamentar STRING,
+    nudeputadoid STRING,
+    nulegislatura STRING,
+    numano STRING,
+    numespecificacaosubcota STRING,
+    numlote STRING,
+    nummes STRING,
+    numparcela STRING,
+    numressarcimento STRING,
+    numsubcota STRING,
+    sgpartido STRING,
+    sguf STRING,
+    txnomeparlamentar STRING,
+    txtcnpjcpf STRING,
+    txtdescricao STRING,
+    txtdescricaoespecificacao STRING,
+    txtfornecedor STRING,
+    txtnumero STRING,
+    txtpassageiro STRING,
+    txttrecho STRING,
+    vlrdocumento STRING,
+    vlrglosa STRING,
+    vlrliquido STRING,
+    vlrrestituicao STRING
+)
+PARTITIONED BY (numano INT, nummes INT)
+STORED AS PARQUET
+LOCATION '/data/warehouse/bronze/cota_parlamentar';

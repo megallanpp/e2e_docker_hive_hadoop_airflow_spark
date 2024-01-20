@@ -1,0 +1,10 @@
+[2024-01-20T02:57:18.758+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/airflow/providers/apache/spark/operators/spark_submit.py", line 157, in execute
+    self._hook.submit(self._application)
+  File "/usr/local/lib/python3.10/site-packages/airflow/providers/apache/spark/hooks/spark_submit.py", line 421, in submit
+    raise AirflowException(
+airflow.exceptions.AirflowException: Cannot execute: spark-submit --master yarn --name arrow-spark ./spark/silver_spark.py. Error code is: 1.
+[2024-01-20T02:57:18.775+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 7 for task silver_trusted_transformacao (Cannot execute: spark-submit --master yarn --name arrow-spark ./spark/silver_spark.py. Error code is: 1.; 2477)
